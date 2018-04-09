@@ -14,23 +14,39 @@
         <form action="/signup" method="post">
             <label>
                 Username
-                <input type="text" name="username" />
+                <input type="text" name="username" value = {{ keepusername }} >
+                    {% if name_error %} 
+                        <p class='error' style="display:inline-block;">{{ name_error }}</p>
+                    {% endif %} 
             </label>
+                <br>
 
             <label>
                 Password
                 <input type="password" name="password" />
+                {% if password_error %}
+                    <p class='error' style="display:inline-block;">{{ password_error }}</p>
+                {% endif %}
             </label>
+                <br>
 
             <label>
                 Verify Password
                 <input type="password" name="verify-password" />
+                {% if verify_error %}
+                    <p class='error' style="display:inline-block;">{{ verify_error }}</p>
+                {% endif %}
             </label>
+                <br>
 
             <label>
                 Email (optional)
-                <input type="text" name="email" />
+                <input type="text" name="email" value = {{keepemail}} >
+                {% if email_error %}
+                    <p class='error' style="display:inline-block;">{{ email_error }}</p>
+                {% endif %}
             </label>
+                <br>
 
             <input type="submit" value="Submit" />
         </form>
